@@ -1,0 +1,115 @@
+.portfolio-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+
+  .main-content {
+    flex: 1;
+    padding-top: 0; // Header is fixed, no need for extra padding
+  }
+}
+
+// Smooth scroll behavior enhancement
+html {
+  scroll-behavior: smooth;
+}
+
+// Ensure all sections have proper spacing
+section {
+  scroll-margin-top: 80px; // Account for fixed header
+}
+
+// Loading state (optional enhancement)
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Scroll indicator for better UX
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-border);
+  z-index: var(--z-fixed);
+
+  .progress-bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    width: 0%;
+    transition: width 0.1s ease;
+  }
+}
+
+// Focus styles for accessibility
+*:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Enhanced animations for better performance
+* {
+  will-change: auto;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Print styles
+@media print {
+  .portfolio-app {
+    .header,
+    .footer,
+    .scroll-indicator {
+      display: none;
+    }
+
+    section {
+      page-break-inside: avoid;
+      margin: 0;
+      padding: 1rem 0;
+    }
+  }
+}

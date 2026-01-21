@@ -1,0 +1,106 @@
+<section id="experience" class="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Career Journey</span>
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-description">
+        15+ years of innovation and leadership across global organizations
+      </p>
+    </div>
+
+    <div class="experience-content">
+      <div class="timeline">
+        <div
+          class="timeline-item"
+          *ngFor="let exp of experiences; let i = index"
+          [class.expanded]="selectedExperience === exp.id"
+          (click)="toggleExperience(exp.id)"
+        >
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line" *ngIf="i < experiences.length - 1"></div>
+          </div>
+
+          <div class="timeline-content">
+            <div class="experience-card">
+              <div class="card-header">
+                <div class="header-main">
+                  <h3 class="job-title">{{ exp.title }}</h3>
+                  <span class="current-badge" *ngIf="exp.current">Current</span>
+                </div>
+                <div class="company-info">
+                  <span class="company-name">{{ exp.company }}</span>
+                  <span class="location" *ngIf="exp.location">{{
+                    exp.location
+                  }}</span>
+                </div>
+                <div class="date-range">
+                  <svg
+                    class="icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span>{{ exp.startDate }} - {{ exp.endDate }}</span>
+                </div>
+              </div>
+
+              <div class="card-body" *ngIf="selectedExperience === exp.id">
+                <div class="responsibilities">
+                  <h4 class="responsibilities-title">
+                    Key Responsibilities & Achievements
+                  </h4>
+                  <ul class="responsibilities-list">
+                    <li *ngFor="let responsibility of exp.responsibilities">
+                      {{ responsibility }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="technologies"
+                  *ngIf="exp.technologies && exp.technologies.length > 0"
+                >
+                  <h4 class="tech-title">Technologies Used</h4>
+                  <div class="tech-tags">
+                    <span
+                      class="tech-tag"
+                      *ngFor="let tech of exp.technologies"
+                      >{{ tech }}</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="expand-indicator">
+                <svg
+                  class="icon"
+                  [class.rotated]="selectedExperience === exp.id"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

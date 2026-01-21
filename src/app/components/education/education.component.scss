@@ -1,0 +1,287 @@
+.education {
+  background: linear-gradient(
+    135deg,
+    var(--color-background-secondary) 0%,
+    var(--color-background) 100%
+  );
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+      circle at 30% 70%,
+      rgba(102, 126, 234, 0.05) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .education-content {
+    position: relative;
+    z-index: 1;
+
+    .education-section,
+    .certifications-section {
+      margin-bottom: 4rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .subsection-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 2.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--color-border);
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 60px;
+          height: 2px;
+          background: var(--gradient-primary);
+        }
+
+        .icon {
+          width: 2rem;
+          height: 2rem;
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      .education-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-base);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        gap: 1.5rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: var(--gradient-primary);
+          transform: scaleY(0);
+          transition: transform var(--transition-base);
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-lg);
+          border-color: var(--color-primary);
+
+          &::before {
+            transform: scaleY(1);
+          }
+
+          .card-icon {
+            background: var(--gradient-primary);
+
+            svg {
+              color: var(--color-text-inverse);
+            }
+          }
+        }
+
+        .card-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: var(--radius-xl);
+          background: var(--color-background-secondary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all var(--transition-base);
+          flex-shrink: 0;
+
+          svg {
+            width: 2rem;
+            height: 2rem;
+            color: var(--color-primary);
+            transition: color var(--transition-base);
+          }
+        }
+
+        .card-content {
+          flex: 1;
+
+          .degree {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+          }
+
+          .institution {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+          }
+
+          .location {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+          }
+
+          .date-range {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+
+            .icon {
+              width: 1rem;
+              height: 1rem;
+              color: var(--color-text-muted);
+            }
+          }
+
+          .description {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+
+      @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      .certification-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-base);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--gradient-primary);
+          transform: scaleX(0);
+          transition: transform var(--transition-base);
+        }
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-lg);
+          border-color: var(--color-primary);
+
+          &::before {
+            transform: scaleX(1);
+          }
+
+          .cert-icon {
+            color: var(--color-primary);
+            transform: scale(1.1);
+          }
+        }
+
+        .cert-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          margin-bottom: 1rem;
+
+          .cert-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--color-success);
+            flex-shrink: 0;
+            transition: all var(--transition-base);
+            margin-top: 0.125rem;
+          }
+
+          .cert-info {
+            flex: 1;
+
+            .cert-name {
+              font-size: 1.1rem;
+              font-weight: 600;
+              color: var(--color-text-primary);
+              margin-bottom: 0.375rem;
+              line-height: 1.3;
+            }
+
+            .cert-issuer {
+              color: var(--color-primary);
+              font-weight: 500;
+              margin-bottom: 0.25rem;
+              font-size: 0.95rem;
+            }
+
+            .cert-date {
+              color: var(--color-text-muted);
+              font-size: 0.875rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .cert-description {
+          color: var(--color-text-secondary);
+          line-height: 1.5;
+          font-size: 0.95rem;
+          margin: 0;
+          padding-left: 3rem;
+
+          @media (max-width: 640px) {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

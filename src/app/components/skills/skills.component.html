@@ -1,0 +1,36 @@
+<section id="skills" class="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What I Know</span>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <p class="section-description">
+        A comprehensive toolkit built over 15+ years of experience
+      </p>
+    </div>
+
+    <div class="skills-content">
+      <div class="skills-grid">
+        <div class="skill-category" *ngFor="let category of skillCategories">
+          <div class="category-header">
+            <h3 class="category-title">{{ category.name }}</h3>
+            <span class="skill-count">{{ category.skills.length }} skills</span>
+          </div>
+
+          <div class="skills-list">
+            <div class="skill-item" *ngFor="let skill of category.skills">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level" *ngIf="skill.level"
+                  >{{ skill.level }}%</span
+                >
+              </div>
+              <div class="skill-bar" *ngIf="skill.level">
+                <div class="skill-progress" [style.width.%]="skill.level"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

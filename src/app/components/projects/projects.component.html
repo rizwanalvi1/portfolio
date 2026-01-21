@@ -1,0 +1,73 @@
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Portfolio</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-description">
+        Showcasing innovative solutions across AI, GIS, and Enterprise
+        Applications
+      </p>
+    </div>
+
+    <div class="filter-tabs">
+      <button
+        class="filter-tab"
+        *ngFor="let category of categories"
+        [class.active]="selectedCategory === category"
+        (click)="filterByCategory(category)"
+      >
+        {{ category | titlecase }}
+      </button>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of filteredProjects">
+        <div class="card-content">
+          <div class="card-header">
+            <span class="project-category" *ngIf="project.category">{{
+              project.category
+            }}</span>
+            <h3 class="project-name">{{ project.name }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+          </div>
+
+          <div class="card-body">
+            <div class="highlights" *ngIf="project.highlights.length > 0">
+              <h4 class="highlights-title">Key Highlights</h4>
+              <ul class="highlights-list">
+                <li *ngFor="let highlight of project.highlights">
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>{{ highlight }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="technologies">
+              <h4 class="tech-title">Tech Stack</h4>
+              <div class="tech-tags">
+                <span
+                  class="tech-tag"
+                  *ngFor="let tech of project.technologies"
+                  >{{ tech }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
