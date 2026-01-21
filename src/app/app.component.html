@@ -2,7 +2,11 @@
   <app-header></app-header>
 
   <main class="main-content">
-    <app-hero id="hero" appAnimateOnScroll></app-hero>
+    <app-hero
+      id="hero"
+      appAnimateOnScroll
+      [socialLinks]="socialLinks"
+    ></app-hero>
     <app-about id="about" appAnimateOnScroll></app-about>
     <app-skills id="skills" appAnimateOnScroll></app-skills>
     <app-experience id="experience" appAnimateOnScroll></app-experience>

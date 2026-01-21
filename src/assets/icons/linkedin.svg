@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LinkedIn logo">
+  <rect width="64" height="64" rx="12" fill="#0A66C2" />
+  <rect x="18" y="27" width="8" height="19" fill="#FFFFFF" />
+  <rect x="18" y="18" width="8" height="6" fill="#FFFFFF" />
+  <path
+    d="M36 27c-5.333 0-8 3.333-8 7.333V46h8v-9.667c0-2 1.333-3.333 3.333-3.333C41.333 33 42 34.667 42 36V46h8V34.333C50 28 46.333 27 42.667 27 40 27 38 28 36 30V27z"
+    fill="#FFFFFF"
+  />
+</svg>

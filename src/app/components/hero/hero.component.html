@@ -66,9 +66,22 @@
         <div class="image-wrapper">
           <img
             src="/profile_pic.jpeg"
-            alt="{{ profile?.name }}"
+            [attr.alt]="profile?.name || 'Profile picture'"
             class="profile-picture"
           />
+        </div>
+        <div class="social-thumbnails" *ngIf="socialLinks as links">
+          <a
+            *ngFor="let platform of socialPlatforms"
+            [href]="links[platform.key] || '#'"
+            class="social-link"
+            [attr.aria-label]="platform.label"
+            target="_blank"
+            rel="noreferrer noopener"
+            [class.disabled]="!links[platform.key]"
+          >
+            <img [src]="platform.icon" [alt]="platform.label" />
+          </a>
         </div>
       </div>
     </div>

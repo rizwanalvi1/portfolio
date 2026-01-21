@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { PortfolioDataService } from '../../services/portfolio-data.service';
-import { Profile } from '../../models/portfolio.model';
+import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { PortfolioDataService } from "../../services/portfolio-data.service";
+import { Profile } from "../../models/portfolio.model";
 
 @Component({
-  selector: 'app-contact',
+  selector: "app-contact",
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss',
+  templateUrl: "./contact.component.html",
+  styleUrl: "./contact.component.scss",
 })
 export class ContactComponent implements OnInit {
-  profile!: Profile;
+  profile: Profile | null = null;
 
   formData = {
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   };
 
   isSubmitting = false;
@@ -66,10 +66,10 @@ export class ContactComponent implements OnInit {
 
   resetForm(): void {
     this.formData = {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     };
   }
 }
